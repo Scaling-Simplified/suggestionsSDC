@@ -38,14 +38,14 @@ const createData = (index) => {
     const { price } = suggestions[i];
     const { salePrice } = suggestions[i];
 
-    dataString += `${mainShoeID},${shoeUrl},${series},${type},${price},${salePrice}\n`;
+    dataString += `${mainShoeID},'${shoeUrl}','${series}','${type}',${price},${salePrice}\n`;
   }
   return dataString;
 };
 
 const startWriting = (writeStream, encoding, done) => {
   let i = lines;
-  const dataCount = lines + 1;
+  const dataCount = lines;
   function writing() {
     let canWrite = true;
     do {
@@ -61,6 +61,7 @@ const startWriting = (writeStream, encoding, done) => {
       }
       // else call write and continue looping
     } while (i > 0 && canWrite);
+
     if (i > 0 && !canWrite) {
       // our buffer for stream filled and need to wait for drain
       // Write some more once it drains.
@@ -70,6 +71,9 @@ const startWriting = (writeStream, encoding, done) => {
   writing();
 };
 
+stream.write(
+  'mainShoeId, url, series, type, price, salePrice\n', 'utf-8',
+);
 startWriting(stream, 'utf-8', () => {
   stream.end();
 });
