@@ -11,7 +11,7 @@ const shoePrices = ['150', '140', '130', '180', '175', '200', '165', '155', '185
 const salePrices = ['112', '104', '85', '90', '110', '122', '131', '0', '0', '0', '0'];
 const url = 'https://source.unsplash.com/1600x900/?adidas,shoes';
 
-const createSuggestions = () => {
+const createSuggestions = (shoeID) => {
   const suggestions = [];
   for (let i = 0; i < 16; i++) {
     const randomIndex = Math.floor(Math.random() * 9);
@@ -27,23 +27,30 @@ const createSuggestions = () => {
   return suggestions;
 };
 
-const createData = () => {
-  const randomIndex = Math.floor(Math.random() * 9);
+const createData = (index) => {
   const suggestions = createSuggestions();
-  const newMerch = {
-    name: `${shoeSeries[randomIndex]} ${shoeTypes[randomIndex]}`,
-    list: suggestions,
-  };
-  return `${JSON.stringify(newMerch)}\n`;
+  let dataString = '';
+  for (let i = 0; i < suggestions.length; i++) {
+    const mainShoeID = index;
+    const { shoeUrl } = suggestions[i];
+    const { series } = suggestions[i];
+    const { type } = suggestions[i];
+    const { price } = suggestions[i];
+    const { salePrice } = suggestions[i];
+
+    dataString += `${mainShoeID},${shoeUrl},${series},${type},${price},${salePrice}\n`;
+  }
+  return dataString;
 };
 
 const startWriting = (writeStream, encoding, done) => {
   let i = lines;
+  const dataCount = lines + 1;
   function writing() {
     let canWrite = true;
     do {
       i--;
-      const post = createData();
+      const post = createData(dataCount - i);
       // check if i === 0 so we would write and call `done`
       if (i === 0) {
         // we are done so fire callback

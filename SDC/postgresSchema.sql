@@ -9,7 +9,6 @@ CREATE TABLE suggestions.suggestionlist (
   type VARCHAR(50),
   price INT,
   salePrice INT,
-  shoeID INT,
 );
 
 -- original method ===============================
