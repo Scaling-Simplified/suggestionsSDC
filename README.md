@@ -8,16 +8,16 @@ _Backend Owner: Terrence Wong (twong0088)_
 * Endpoint: /add
 * Request Body Example:
 
-```json
+```text
 {
   "list":[
     {
-    "id": /* INT */,
-    "shoeUrl": /* STRING */,
-    "series": /* STRING */,
-    "type":/* STRING */,
-    "price": /* INT */,
-    "salePrice": /* INT */,
+    "id": STRING,
+    "shoeUrl": STRING,
+    "series": STRING,
+    "type": STRING,
+    "price": INT,
+    "salePrice": INT,
     }
   ]
 }
@@ -29,20 +29,19 @@ _Backend Owner: Terrence Wong (twong0088)_
 * Endpoint: /api/products/:id/suggestions
 * Request Body: none
 * Response Object Example:
-```json
+```text
 [
   {
-    "_id": /* STRING */,
-    "shoeID": /* INT */,
+    "_id": STRING,
+    "shoeID": INT,
     "list":[
       {
-        "_id":  /* STRING */,
-        "id":51702,
-        "shoeUrl":  /* STRING */,
-        "series": /* STRING */,
-        "type":  /* STRING */,
-        "price": /* INT */,
-        "salePrice": /* INT */,
+        "id": INT,
+        "shoeUrl": STRING,
+        "series": STRING,
+        "type": STRING,
+        "price": INT,
+        "salePrice": INT,
       }
     ],
     "__v":0
@@ -53,15 +52,15 @@ _Backend Owner: Terrence Wong (twong0088)_
 * Method: PUT
 * Endpoint: /update/:id
 * Request Body Example:
-```json
+```text
 {
   "list":[
     {
-      "shoeUrl": /* STRING */,
-      "series": /* STRING */,
-      "type": /* STRING */,
-      "price": /* INT */,
-      "salePrice": /* INT */,
+      "shoeUrl": STRING,
+      "series": STRING,
+      "type": STRING,
+      "price": INT,
+      "salePrice": INT,
     }
   ]
 }
