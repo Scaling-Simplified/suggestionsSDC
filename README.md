@@ -8,17 +8,16 @@ _Backend Owner: Terrence Wong (twong0088)_
 * Endpoint: /add
 * Request Body Example:
 
-```json
+```text
 {
   "list":[
-    {"_id":"5fc837da0e65af1c0c5b2455",
-    "id":51702,
-    "shoeUrl":"https://fec-ay.s3-us-west-1.amazonaws.com/s39.jpg",
-    "series":"Performance",
-    "type":"ULTRABOOST SHOES",
-    "price":140,
-    "salePrice":104,
-    "recycledMaterials":false
+    {
+    "id": STRING,
+    "shoeUrl": STRING,
+    "series": STRING,
+    "type": STRING,
+    "price": INT,
+    "salePrice": INT,
     }
   ]
 }
@@ -30,21 +29,19 @@ _Backend Owner: Terrence Wong (twong0088)_
 * Endpoint: /api/products/:id/suggestions
 * Request Body: none
 * Response Object Example:
-```json
+```text
 [
   {
-    "_id":"5fc874c746a8e0295751ce92",
-    "shoeID":101,
+    "_id": STRING,
+    "shoeID": INT,
     "list":[
       {
-        "_id":"5fc837da0e65af1c0c5b2455",
-        "id":51702,
-        "shoeUrl":"https://fec-ay.s3-us-west-1.amazonaws.com/s39.jpg",
-        "series":"Performance",
-        "type":"ULTRABOOST SHOES",
-        "price":140,
-        "salePrice":104,
-        "recycledMaterials":false
+        "id": INT,
+        "shoeUrl": STRING,
+        "series": STRING,
+        "type": STRING,
+        "price": INT,
+        "salePrice": INT,
       }
     ],
     "__v":0
@@ -55,18 +52,15 @@ _Backend Owner: Terrence Wong (twong0088)_
 * Method: PUT
 * Endpoint: /update/:id
 * Request Body Example:
-```json
+```text
 {
   "list":[
     {
-      "_id":"5fc837da0e65af1c0c5b2455",
-      "id":51702,
-      "shoeUrl":"https://fec-ay.s3-us-west-1.amazonaws.com/s39.jpg",
-      "series":"Performance",
-      "type":"ULTRABOOST SHOES",
-      "price":140,
-      "salePrice":104,
-      "recycledMaterials":false
+      "shoeUrl": STRING,
+      "series": STRING,
+      "type": STRING,
+      "price": INT,
+      "salePrice": INT,
     }
   ]
 }
