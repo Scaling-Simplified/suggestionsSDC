@@ -1,16 +1,28 @@
-DROP SCHEMA suggestions CASCADE;
-CREATE SCHEMA suggestions;
+DROP DATABASE IF EXISTS suggestions;
 
-CREATE TABLE suggestions.suggestionlist (
-  id serial PRIMARY KEY,
-  mainShoeID: INT,
-  shoeUrl VARCHAR(50),
+
+CREATE DATABASE suggestions;
+-- USE suggestions;
+\c suggestions;
+DROP TABLE IF EXISTS suggestionlist;
+CREATE TABLE suggestionlist (
+  id INT NOT NULL,
+  mainShoeID INT NOT NULL,
+  shoeUrl VARCHAR(100),
   series VARCHAR(50),
-  type VARCHAR(50),
+  shoe_type VARCHAR(50),
   price INT,
-  salePrice INT,
+  salePrice INT
 );
 
+\timing
+COPY suggestionlist(id, mainShoeID, shoeUrl, series, shoe_type, price, salePrice)
+FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/data.csv'
+WITH CSV HEADER DELIMITER ',';
+\timing
+-- SELECT * FROM suggestions.suggestionlist
+
+EXPLAIN ANALYZE SELECT * FROM suggestionlist;
 -- original method ===============================
 -- DROP DATABASE suggestions;
 -- DROP TABLE IF EXISTS suggestionlist;

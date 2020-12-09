@@ -17,7 +17,7 @@
     "test-fe:watch": "npm run test-fe -- --watch",
     "test": "npm run test-fe && npm run test-be",
     "docker": "node db/seed.js && node server/start.js",
-    "generate-data": "node SDC/dataCreator.js --lines 1000000 --output data.csv"
+    "generate-data": "node SDC/dataGenerator.js --lines 100 --output data.csv"
   },
   "dependencies": {
     "axios": "^0.21.0",
