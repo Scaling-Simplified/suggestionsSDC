@@ -24,47 +24,47 @@ CREATE TABLE suggestions (
 \timing
 
 COPY shoes(shoeUrl, series, shoe_type, price, salePrice)
-FROM '/home/ubuntu/storageSuggestionsData.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageSuggestionsData.csv'
 WITH CSV HEADER DELIMITER ',';
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData1.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData1.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData2.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData2.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData3.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData3.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData4.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData4.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData5.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData5.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData6.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData6.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData7.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData7.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData8.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData8.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData9.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData9.csv'
 WITH CSV HEADER;
 
 COPY suggestions(mainId, suggestionId)
-FROM '/home/ubuntu/storageProductsData10.csv'
+FROM '/home/ubuntu/suggestionsSDC/storageProductsData10.csv'
 WITH CSV HEADER;
 
 create index mainshoeid_indx on suggestions(mainId);
