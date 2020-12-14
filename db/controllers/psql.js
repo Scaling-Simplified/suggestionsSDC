@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-expressions */
-const client = require('../models/psqlSuggestion.js');
+const pool = require('../models/psqlSuggestion.js');
 
 const getImagesAPIByID = (id, callback) => {
-  client.query(`SELECT shoes.shoeUrl, shoes.series, shoes.shoe_type, shoes.price, shoes.price, shoes.salePrice FROM shoes INNER JOIN suggestions ON suggestions.mainId = ${id} AND suggestions.suggestionId = shoes.id;`, (err, res) => {
+  pool.query(`SELECT shoes.shoeUrl, shoes.series, shoes.shoe_type, shoes.price, shoes.price, shoes.salePrice FROM shoes INNER JOIN suggestions ON suggestions.mainId = ${id} AND suggestions.suggestionId = shoes.id;`, (err, res) => {
     if (err) {
       callback(err);
     } else {
@@ -11,46 +11,46 @@ const getImagesAPIByID = (id, callback) => {
   });
 };
 
-const addNew = (suggestions, callback) => {
-  client.query(`INSERT INTO shoes(shoeUrl, series, shoe_type, price, salePrice) VALUES ('${suggestions.shoeUrl}', '${suggestions.series}', '${suggestions.type}', ${suggestions.price}, ${suggestions.salePrice})`, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('successfully added to shoes');
-      client.query('SELECT mainid FROM suggestions ORDER BY mainid DESC LIMIT 1', (err, maxId) => {
-        if (err) {
-          console.log(err);
-        } else {
-          const suggestionSeeder = (cb) => {
-            for (let i = 0; i < suggestions.suggestion.length; i++) {
-              client.query(`INSERT INTO suggestions (mainid, suggestionid) VALUES (${maxId.rows[0].mainid + 1}, ${suggestions.suggestion[i]})`, (err) => {
-                if (err) {
-                  console.log(err);
-                } else {
-                  console.log('success adding into suggestions');
-                  if (i === suggestions.suggestion.length - 1) {
-                    cb();
-                  }
-                }
-              });
-            }
-          };
-          suggestionSeeder(() => {
-            // client.end((err) => {
-            //   if (err) {
-            //     console.log(err);
-            //   } else {
-            //     console.log('disconnected');
-            //     callback();
-            //   }
-            // });
-            callback();
-          });
-        }
-      });
-    }
-  });
-};
+// const addNew = (suggestions, callback) => {
+//   client.query(`INSERT INTO shoes(shoeUrl, series, shoe_type, price, salePrice) VALUES ('${suggestions.shoeUrl}', '${suggestions.series}', '${suggestions.type}', ${suggestions.price}, ${suggestions.salePrice})`, (err) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log('successfully added to shoes');
+//       client.query('SELECT mainid FROM suggestions ORDER BY mainid DESC LIMIT 1', (err, maxId) => {
+//         if (err) {
+//           console.log(err);
+//         } else {
+//           const suggestionSeeder = (cb) => {
+//             for (let i = 0; i < suggestions.suggestion.length; i++) {
+//               client.query(`INSERT INTO suggestions (mainid, suggestionid) VALUES (${maxId.rows[0].mainid + 1}, ${suggestions.suggestion[i]})`, (err) => {
+//                 if (err) {
+//                   console.log(err);
+//                 } else {
+//                   console.log('success adding into suggestions');
+//                   if (i === suggestions.suggestion.length - 1) {
+//                     cb();
+//                   }
+//                 }
+//               });
+//             }
+//           };
+//           suggestionSeeder(() => {
+//             // client.end((err) => {
+//             //   if (err) {
+//             //     console.log(err);
+//             //   } else {
+//             //     console.log('disconnected');
+//             //     callback();
+//             //   }
+//             // });
+//             callback();
+//           });
+//         }
+//       });
+//     }
+//   });
+// };
 
 // secondary =========================================
 
@@ -88,4 +88,4 @@ const addNew = (suggestions, callback) => {
 // };
 
 module.exports.getImagesAPIByID = getImagesAPIByID;
-module.exports.addNew = addNew;
+// module.exports.addNew = addNew;

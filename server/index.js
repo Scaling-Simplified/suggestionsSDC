@@ -10,20 +10,18 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(compression());
-app.use(express.static(path.join(__dirname, '/../client/dist')));
+// app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-app.get('/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
-});
+// app.get('/:id', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
+// });
 
 // psql =============================================
 app.get('/api/products/:id/suggestions', (req, res) => {
   psql.getImagesAPIByID(req.params.id, (err, result) => {
     if (err) {
-      console.log(err);
       res.sendStatus(404);
     } else {
-      console.log('successfully retrieved records');
       res.status(200).send(result);
     }
   });

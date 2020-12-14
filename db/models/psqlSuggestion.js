@@ -1,12 +1,12 @@
-const { Client } = require('pg');
+const { Pool } = require('pg');
 
-const client = new Client({
+const pool = new Pool({
   host: '127.0.0.1',
   database: 'index_suggestions',
   port: 5432,
 });
 
-client.connect(err => {
+pool.connect(err => {
   if (err) {
     console.log(err);
   } else {
@@ -14,4 +14,4 @@ client.connect(err => {
   }
 });
 
-module.exports = client;
+module.exports = pool;

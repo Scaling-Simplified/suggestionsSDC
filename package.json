@@ -22,7 +22,16 @@
     "generate-postgres-products": "node SDC/postgresProductGenerator.js --lines 10000000 --output postgresProduct.csv",
     "generate-indexing-psql": "node SDC/indexPostgresData.js --lines 10000000 --output indexingData.csv",
     "generate-psql-suggestions-storage": "node SDC/postgresSuggestionsStorage.js --lines 10000000 --output storageSuggestionsData.csv",
-    "generate-psql-products-storage": "node SDC/postgresProductsStorage.js --lines 10000000 --output storageProductsData.csv"
+    "generate-psql-products-storage1": "node SDC/postgresProductsStorage.js --start 1 --lines 1000000 --output storageProductsData1.csv",
+    "generate-psql-products-storage2": "node SDC/postgresProductsStorage.js --start 1000001 --lines 1000000 --output storageProductsData2.csv",
+    "generate-psql-products-storage3": "node SDC/postgresProductsStorage.js --start 2000001 --lines 1000000 --output storageProductsData3.csv",
+    "generate-psql-products-storage4": "node SDC/postgresProductsStorage.js --start 3000001 --lines 1000000 --output storageProductsData4.csv",
+    "generate-psql-products-storage5": "node SDC/postgresProductsStorage.js --start 4000001 --lines 1000000 --output storageProductsData5.csv",
+    "generate-psql-products-storage6": "node SDC/postgresProductsStorage.js --start 5000001 --lines 1000000 --output storageProductsData6.csv",
+    "generate-psql-products-storage7": "node SDC/postgresProductsStorage.js --start 6000001 --lines 1000000 --output storageProductsData7.csv",
+    "generate-psql-products-storage8": "node SDC/postgresProductsStorage.js --start 7000001 --lines 1000000 --output storageProductsData8.csv",
+    "generate-psql-products-storage9": "node SDC/postgresProductsStorage.js --start 8000001 --lines 1000000 --output storageProductsData9.csv",
+    "generate-psql-products-storage10": "node SDC/postgresProductsStorage.js --start 9000001 --lines 1000000 --output storageProductsData10.csv"
   },
   "dependencies": {
     "axios": "^0.21.0",

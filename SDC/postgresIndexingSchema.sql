@@ -24,16 +24,49 @@ CREATE TABLE suggestions (
 \timing
 
 COPY shoes(shoeUrl, series, shoe_type, price, salePrice)
-FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/dummyData/postgres/10MstorageSuggestionsData.csv'
+FROM '/home/ubuntu/storageSuggestionsData.csv'
 WITH CSV HEADER DELIMITER ',';
 
 COPY suggestions(mainId, suggestionId)
-FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/dummyData/postgres/10MstorageProductsData.csv'
+FROM '/home/ubuntu/storageProductsData1.csv'
 WITH CSV HEADER;
 
-\timing
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData2.csv'
+WITH CSV HEADER;
 
-\timing
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData3.csv'
+WITH CSV HEADER;
+
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData4.csv'
+WITH CSV HEADER;
+
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData5.csv'
+WITH CSV HEADER;
+
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData6.csv'
+WITH CSV HEADER;
+
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData7.csv'
+WITH CSV HEADER;
+
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData8.csv'
+WITH CSV HEADER;
+
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData9.csv'
+WITH CSV HEADER;
+
+COPY suggestions(mainId, suggestionId)
+FROM '/home/ubuntu/storageProductsData10.csv'
+WITH CSV HEADER;
+
 create index mainshoeid_indx on suggestions(mainId);
 \timing
 
