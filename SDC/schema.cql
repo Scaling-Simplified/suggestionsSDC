@@ -14,8 +14,8 @@ CREATE TABLE suggestions.suggestions_by_shoe_id (
   type TEXT,
   price INT,
   salePrice INT,
-  PRIMARY KEY(id)
+  PRIMARY KEY(mainShoeid, id)
 );
 
-COPY suggestions.suggestions_by_shoe_id (id,mainShoeId, url, series, type, price, salePrice) FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/10Mdata.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+COPY suggestions.suggestions_by_shoe_id (id,mainShoeId, url, series, type, price, salePrice) FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/data.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 

@@ -18,7 +18,8 @@ class App extends React.Component {
     // axios.get('/api/products/1/suggestions/')
     axios.get(`/api/products/${itemID || 1}/suggestions/`)
       .then((res) => {
-        this.setState({ suggestions: res.data[0].list });
+        console.log(res.data.rows);
+        this.setState({ suggestions: res.data.rows });
       })
       .catch((err) => {
         console.log('Unable to fetch data from db: ', err);

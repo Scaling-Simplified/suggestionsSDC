@@ -10,16 +10,12 @@ _Backend Owner: Terrence Wong (twong0088)_
 
 ```text
 {
-  "list":[
-    {
-    "id": STRING,
-    "shoeUrl": STRING,
-    "series": STRING,
-    "type": STRING,
-    "price": INT,
-    "salePrice": INT,
-    }
-  ]
+  "shoeUrl": STRING,
+  "series": STRING,
+  "type": STRING,
+  "price": INT,
+  "salePrice": INT,
+  "suggestion": ARRAY
 }
 ```
 * Response Object: HTTP Status Code 201

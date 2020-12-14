@@ -5,7 +5,7 @@
 npm
 npm-debug.log
 node_modules/
-
+newrelic.js
 pids
 *.pid
 logs

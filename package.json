@@ -17,7 +17,12 @@
     "test-fe:watch": "npm run test-fe -- --watch",
     "test": "npm run test-fe && npm run test-be",
     "docker": "node db/seed.js && node server/start.js",
-    "generate-data": "node SDC/dataGenerator.js --lines 100 --output data.csv"
+    "generate-cassandra-data": "node SDC/dataGenerator.js --lines 10000000 --output data.csv",
+    "generate-postgres-suggestions": "node SDC/postgresSuggestionGenerator.js --lines 10000000 --output postgresSuggestions.csv",
+    "generate-postgres-products": "node SDC/postgresProductGenerator.js --lines 10000000 --output postgresProduct.csv",
+    "generate-indexing-psql": "node SDC/indexPostgresData.js --lines 10000000 --output indexingData.csv",
+    "generate-psql-suggestions-storage": "node SDC/postgresSuggestionsStorage.js --lines 10000000 --output storageSuggestionsData.csv",
+    "generate-psql-products-storage": "node SDC/postgresProductsStorage.js --lines 10000000 --output storageProductsData.csv"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -26,7 +31,9 @@
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "mongoose": "^5.10.13",
+    "newrelic": "^7.0.2",
     "path": "^0.12.7",
+    "pg": "^8.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

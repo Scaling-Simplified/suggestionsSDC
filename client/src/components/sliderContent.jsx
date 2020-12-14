@@ -23,16 +23,15 @@ const Wrapper = styled.div`
 
 function SliderContent({ view, list }) {
   const items = list.map(({
-    id, price, recycledMaterials, salePrice, series, shoeUrl, type,
+    id, price, saleprice, series, shoeurl, shoe_type,
   }) => (
       <Wrapper view={view} key={id}>
-        <Photo url={shoeUrl} />
+        <Photo url={shoeurl} />
         <Details
           price={price}
-          recycled={recycledMaterials}
-          salePrice={salePrice}
+          salePrice={saleprice}
           series={series}
-          type={type} />
+          type={shoe_type} />
       </Wrapper>
   ));
 
