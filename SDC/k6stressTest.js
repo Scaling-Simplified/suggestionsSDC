@@ -22,7 +22,7 @@ export const options = {
 };
 
 export default function () {
-  const BASE_URL = `http://127.0.0.1:3003/api/products/${Math.floor(Math.random() * 10000000) + 1}/suggestions`;
+  const BASE_URL = `http://54.153.86.120:3003/api/products/${Math.floor(Math.random() * 10000000) + 1}/suggestions`;
 
   const result = check(http.get(BASE_URL), {
     'status is 200': (r) => r.status === 200,
