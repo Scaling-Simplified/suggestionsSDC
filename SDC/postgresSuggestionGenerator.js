@@ -22,7 +22,7 @@ for (let i = 1; i <= 200; i++) {
 
 const createSuggestions = () => {
   const suggestions = [];
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < 1; i++) {
     const randomIndex = Math.floor(Math.random() * 9);
     const newCollection = {
       shoeUrl: urls[(i + randomIndex) % urls.length],

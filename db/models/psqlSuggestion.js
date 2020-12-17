@@ -1,11 +1,11 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  host: '54.183.200.168',
-  database: 'index_suggestions',
+  host: '127.0.0.1',
+  database: 'suggestions',
   port: 5432,
-  user: 'postgres',
-  password: 'password',
+  // user: 'postgres',
+  // password: 'password',
 });
 
 pool.connect(err => {

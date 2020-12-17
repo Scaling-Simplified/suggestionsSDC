@@ -20,11 +20,12 @@ CREATE TABLE suggestionlist (
 
 \timing
 COPY productlist(suggestions)
-FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/dummyData/postgres/10MpostgresProduct.csv'
+FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/postgresProduct.csv'
 WITH CSV HEADER;
 
+
 COPY suggestionlist(shoeUrl, series, shoe_type, price, salePrice)
-FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/dummyData/postgres/10MpostgresSuggestions.csv'
+FROM '/Users/caijiaxin/Documents/Hack_Reactor/SDC/suggestionsSDC/postgresSuggestions.csv'
 WITH CSV HEADER DELIMITER ',';
 \timing
 -- SELECT * FROM suggestions.suggestionlist

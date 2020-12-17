@@ -1,8 +1,18 @@
 /* eslint-disable no-unused-expressions */
 const pool = require('../models/psqlSuggestion.js');
 
+// const getImagesAPIByID = (id, callback) => {
+//   pool.query(`SELECT shoes.shoeUrl, shoes.series, shoes.shoe_type, shoes.price, shoes.price, shoes.salePrice FROM shoes INNER JOIN suggestions ON suggestions.mainId = ${id} AND suggestions.suggestionId = shoes.id;`, (err, res) => {
+//     if (err) {
+//       callback(err);
+//     } else {
+//       callback(null, res);
+//     }
+//   });
+// };
+
 const getImagesAPIByID = (id, callback) => {
-  pool.query(`SELECT shoes.shoeUrl, shoes.series, shoes.shoe_type, shoes.price, shoes.price, shoes.salePrice FROM shoes INNER JOIN suggestions ON suggestions.mainId = ${id} AND suggestions.suggestionId = shoes.id;`, (err, res) => {
+  pool.query(`SELECT productlist.id, suggestionlist.shoeurl, suggestionlist.series, suggestionlist.shoe_type, suggestionlist.price, suggestionlist.saleprice FROM suggestionlist INNER JOIN productlist ON productlist.id = ${id} AND suggestionlist.id=ANY(productlist.suggestions)`, (err, res) => {
     if (err) {
       callback(err);
     } else {

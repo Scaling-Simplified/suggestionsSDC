@@ -6,17 +6,19 @@ const { argv } = require('yargs');
 const lines = argv.lines || 1000;
 const filename = argv.output || 'generatedData.csv';
 const stream = fs.createWriteStream(filename);
+let counter = 0;
 
-const createSuggestions = (index) => {
+const createSuggestions = (max) => {
   let suggestions = '';
   for (let i = 1; i <= 16; i++) {
-    suggestions += `${((index - 1) * 16) + i},`;
+    suggestions += `${(counter % max) + 1},`;
+    counter++;
   }
   return suggestions;
 };
 
-const createData = (index) => {
-  let suggestions = createSuggestions(index);
+const createData = (index, max) => {
+  let suggestions = createSuggestions(max);
   suggestions = suggestions.slice(0, -1);
   let dataString = '';
 
@@ -35,7 +37,7 @@ const startWriting = (writeStream, encoding, done) => {
     let canWrite = true;
     do {
       i--;
-      const post = createData(dataCount - i);
+      const post = createData(dataCount - i, lines);
       // check if i === 0 so we would write and call `done`
       if (i === 0) {
         // we are done so fire callback
